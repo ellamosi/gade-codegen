@@ -1,0 +1,500 @@
+8E         ADC A,(HL)      8
+8F         ADC A,A         4
+88         ADC A,B         4
+89         ADC A,C         4
+8A         ADC A,D         4
+8B         ADC A,E         4
+8C         ADC A,H         4
+8D         ADC A,L         4
+CE n       ADC A,n         8
+86         ADD A,(HL)      8
+87         ADD A,A         4
+80         ADD A,B         4
+81         ADD A,C         4
+82         ADD A,D         4
+83         ADD A,E         4
+84         ADD A,H         4
+85         ADD A,L         4
+C6 n       ADD A,n         8
+09         ADD HL,BC       8
+19         ADD HL,DE       8
+29         ADD HL,HL       8
+39         ADD HL,SP       8
+E8 n       ADD SP,n        16
+A6         AND (HL)        8
+A7         AND A           4
+A0         AND B           4
+A1         AND C           4
+A2         AND D           4
+A3         AND E           4
+A4         AND H           4
+A5         AND L           4
+E6 n       AND n           8
+CB46       BIT 0,(HL)      16
+CB47       BIT 0,A         8
+CB40       BIT 0,B         8
+CB41       BIT 0,C         8
+CB42       BIT 0,D         8
+CB43       BIT 0,E         8
+CB44       BIT 0,H         8
+CB45       BIT 0,L         8
+CB4E       BIT 1,(HL)      16
+CB4F       BIT 1,A         8
+CB48       BIT 1,B         8
+CB49       BIT 1,C         8
+CB4A       BIT 1,D         8
+CB4B       BIT 1,E         8
+CB4C       BIT 1,H         8
+CB4D       BIT 1,L         8
+CB56       BIT 2,(HL)      16
+CB57       BIT 2,A         8
+CB50       BIT 2,B         8
+CB51       BIT 2,C         8
+CB52       BIT 2,D         8
+CB53       BIT 2,E         8
+CB54       BIT 2,H         8
+CB55       BIT 2,L         8
+CB5E       BIT 3,(HL)      16
+CB5F       BIT 3,A         8
+CB58       BIT 3,B         8
+CB59       BIT 3,C         8
+CB5A       BIT 3,D         8
+CB5B       BIT 3,E         8
+CB5C       BIT 3,H         8
+CB5D       BIT 3,L         8
+CB66       BIT 4,(HL)      16
+CB67       BIT 4,A         8
+CB60       BIT 4,B         8
+CB61       BIT 4,C         8
+CB62       BIT 4,D         8
+CB63       BIT 4,E         8
+CB64       BIT 4,H         8
+CB65       BIT 4,L         8
+CB6E       BIT 5,(HL)      16
+CB6F       BIT 5,A         8
+CB68       BIT 5,B         8
+CB69       BIT 5,C         8
+CB6A       BIT 5,D         8
+CB6B       BIT 5,E         8
+CB6C       BIT 5,H         8
+CB6D       BIT 5,L         8
+CB76       BIT 6,(HL)      16
+CB77       BIT 6,A         8
+CB70       BIT 6,B         8
+CB71       BIT 6,C         8
+CB72       BIT 6,D         8
+CB73       BIT 6,E         8
+CB74       BIT 6,H         8
+CB75       BIT 6,L         8
+CB7E       BIT 7,(HL)      16
+CB7F       BIT 7,A         8
+CB78       BIT 7,B         8
+CB79       BIT 7,C         8
+CB7A       BIT 7,D         8
+CB7B       BIT 7,E         8
+CB7C       BIT 7,H         8
+CB7D       BIT 7,L         8
+CD nn      CALL (nn)       24
+DC nn      CALL C,(nn)     24/12
+D4 nn      CALL NC,(nn)    24/12
+C4 nn      CALL NZ,(nn)    24/12
+CC nn      CALL Z,(nn)     24/12
+3F         CCF             4
+BE         CP (HL)         8
+BF         CP A            4
+B8         CP B            4
+B9         CP C            4
+BA         CP D            4
+BB         CP E            4
+BC         CP H            4
+BD         CP L            4
+FE n       CP n            8
+2F         CPL             4
+27         DAA             4
+35         DEC (HL)        12
+3D         DEC A           4
+05         DEC B           4
+0B         DEC BC          8
+0D         DEC C           4
+15         DEC D           4
+1B         DEC DE          8
+1D         DEC E           4
+25         DEC H           4
+2B         DEC HL          8
+2D         DEC L           4
+3B         DEC SP          8
+F3         DI              4
+FB         EI              4
+76         HALT            4
+34         INC (HL)        12
+3C         INC A           4
+04         INC B           4
+03         INC BC          8
+0C         INC C           4
+14         INC D           4
+13         INC DE          8
+1C         INC E           4
+24         INC H           4
+23         INC HL          8
+2C         INC L           4
+33         INC SP          8
+E9         JP (HL)         4
+C3 nn      JP (nn)         16
+DA nn      JP C,(nn)       16/12
+D2 nn      JP NC,(nn)      16/12
+C2 nn      JP NZ,(nn)      16/12
+CA nn      JP Z,(nn)       16/12
+18 e       JR (PC+e)       12
+38 e       JR C,(PC+e)     12/8
+30 e       JR NC,(PC+e)    12/8
+20 e       JR NZ,(PC+e)    12/8
+28 e       JR Z,(PC+e)     12/8
+02         LD (BC),A       8
+E2         LD (C),A        8
+12         LD (DE),A       8
+77         LD (HL),A       8
+70         LD (HL),B       8
+71         LD (HL),C       8
+72         LD (HL),D       8
+73         LD (HL),E       8
+74         LD (HL),H       8
+75         LD (HL),L       8
+36 n       LD (HL),n       12
+EA nn      LD (nn),A       16
+08 nn      LD (nn),SP      20
+0A         LD A,(BC)       8
+F2         LD A,(C)        8
+1A         LD A,(DE)       8
+7E         LD A,(HL)       8
+FA nn      LD A,(nn)       16
+7F         LD A,A          4
+78         LD A,B          4
+79         LD A,C          4
+7A         LD A,D          4
+7B         LD A,E          4
+7C         LD A,H          4
+7D         LD A,L          4
+3E n       LD A,n          8
+46         LD B,(HL)       8
+47         LD B,A          4
+40         LD B,B          4
+41         LD B,C          4
+42         LD B,D          4
+43         LD B,E          4
+44         LD B,H          4
+45         LD B,L          4
+06 n       LD B,n          8
+01 nn      LD BC,nn        12
+4E         LD C,(HL)       8
+4F         LD C,A          4
+48         LD C,B          4
+49         LD C,C          4
+4A         LD C,D          4
+4B         LD C,E          4
+4C         LD C,H          4
+4D         LD C,L          4
+0E n       LD C,n          8
+56         LD D,(HL)       8
+57         LD D,A          4
+50         LD D,B          4
+51         LD D,C          4
+52         LD D,D          4
+53         LD D,E          4
+54         LD D,H          4
+55         LD D,L          4
+16 n       LD D,n          8
+11 nn      LD DE,nn        12
+5E         LD E,(HL)       8
+5F         LD E,A          4
+58         LD E,B          4
+59         LD E,C          4
+5A         LD E,D          4
+5B         LD E,E          4
+5C         LD E,H          4
+5D         LD E,L          4
+1E n       LD E,n          8
+66         LD H,(HL)       8
+67         LD H,A          4
+60         LD H,B          4
+61         LD H,C          4
+62         LD H,D          4
+63         LD H,E          4
+64         LD H,H          4
+65         LD H,L          4
+26 n       LD H,n          8
+21 nn      LD HL,nn        12
+6E         LD L,(HL)       8
+6F         LD L,A          4
+68         LD L,B          4
+69         LD L,C          4
+6A         LD L,D          4
+6B         LD L,E          4
+6C         LD L,H          4
+6D         LD L,L          4
+2E n       LD L,n          8
+F9         LD SP,HL        8
+31 nn      LD SP,nn        12
+32         LDD (HL),A      8
+3A         LDD A,(HL)      8
+E0 n       LDH (n),A       12
+F0         LDH A,(n)       12
+F8 n       LDHL SP,n       12
+22         LDI (HL),A      8
+2A         LDI A,(HL)      8
+00         NOP             4
+B6         OR (HL)         8
+B7         OR A            4
+B0         OR B            4
+B1         OR C            4
+B2         OR D            4
+B3         OR E            4
+B4         OR H            4
+B5         OR L            4
+F6 n       OR n            8
+F1         POP AF          12
+C1         POP BC          12
+D1         POP DE          12
+E1         POP HL          12
+F5         PUSH AF         16
+C5         PUSH BC         16
+D5         PUSH DE         16
+E5         PUSH HL         16
+CB86       RES 0,(HL)      16
+CB87       RES 0,A         8
+CB80       RES 0,B         8
+CB81       RES 0,C         8
+CB82       RES 0,D         8
+CB83       RES 0,E         8
+CB84       RES 0,H         8
+CB85       RES 0,L         8
+CB8E       RES 1,(HL)      16
+CB8F       RES 1,A         8
+CB88       RES 1,B         8
+CB89       RES 1,C         8
+CB8A       RES 1,D         8
+CB8B       RES 1,E         8
+CB8C       RES 1,H         8
+CB8D       RES 1,L         8
+CB96       RES 2,(HL)      16
+CB97       RES 2,A         8
+CB90       RES 2,B         8
+CB91       RES 2,C         8
+CB92       RES 2,D         8
+CB93       RES 2,E         8
+CB94       RES 2,H         8
+CB95       RES 2,L         8
+CB9E       RES 3,(HL)      16
+CB9F       RES 3,A         8
+CB98       RES 3,B         8
+CB99       RES 3,C         8
+CB9A       RES 3,D         8
+CB9B       RES 3,E         8
+CB9C       RES 3,H         8
+CB9D       RES 3,L         8
+CBA6       RES 4,(HL)      16
+CBA7       RES 4,A         8
+CBA0       RES 4,B         8
+CBA1       RES 4,C         8
+CBA2       RES 4,D         8
+CBA3       RES 4,E         8
+CBA4       RES 4,H         8
+CBA5       RES 4,L         8
+CBAE       RES 5,(HL)      16
+CBAF       RES 5,A         8
+CBA8       RES 5,B         8
+CBA9       RES 5,C         8
+CBAA       RES 5,D         8
+CBAB       RES 5,E         8
+CBAC       RES 5,H         8
+CBAD       RES 5,L         8
+CBB6       RES 6,(HL)      16
+CBB7       RES 6,A         8
+CBB0       RES 6,B         8
+CBB1       RES 6,C         8
+CBB2       RES 6,D         8
+CBB3       RES 6,E         8
+CBB4       RES 6,H         8
+CBB5       RES 6,L         8
+CBBE       RES 7,(HL)      16
+CBBF       RES 7,A         8
+CBB8       RES 7,B         8
+CBB9       RES 7,C         8
+CBBA       RES 7,D         8
+CBBB       RES 7,E         8
+CBBC       RES 7,H         8
+CBBD       RES 7,L         8
+C9         RET             16
+D8         RET C           20/8
+D0         RET NC          20/8
+C0         RET NZ          20/8
+C8         RET Z           20/8
+D9         RETI            16
+CB16       RL (HL)         16
+CB17       RL A            8
+CB10       RL B            8
+CB11       RL C            8
+CB12       RL D            8
+CB13       RL E            8
+CB14       RL H            8
+CB15       RL L            8
+17         RLA             4
+CB06       RLC (HL)        16
+CB07       RLC A           8
+CB00       RLC B           8
+CB01       RLC C           8
+CB02       RLC D           8
+CB03       RLC E           8
+CB04       RLC H           8
+CB05       RLC L           8
+07         RLCA            4
+CB1E       RR (HL)         16
+CB1F       RR A            8
+CB18       RR B            8
+CB19       RR C            8
+CB1A       RR D            8
+CB1B       RR E            8
+CB1C       RR H            8
+CB1D       RR L            8
+1F         RRA             4
+CB0E       RRC (HL)        16
+CB0F       RRC A           8
+CB08       RRC B           8
+CB09       RRC C           8
+CB0A       RRC D           8
+CB0B       RRC E           8
+CB0C       RRC H           8
+CB0D       RRC L           8
+0F         RRCA            4
+C7         RST 0H          16
+D7         RST 10H         16
+DF         RST 18H         16
+E7         RST 20H         16
+EF         RST 28H         16
+F7         RST 30H         16
+FF         RST 38H         16
+CF         RST 8H          16
+9E         SBC A,(HL)      8
+9F         SBC A,A         4
+98         SBC A,B         4
+99         SBC A,C         4
+9A         SBC A,D         4
+9B         SBC A,E         4
+9C         SBC A,H         4
+9D         SBC A,L         4
+DE n       SBC A,n         8
+37         SCF             4
+CBC6       SET 0,(HL)      16
+CBC7       SET 0,A         8
+CBC0       SET 0,B         8
+CBC1       SET 0,C         8
+CBC2       SET 0,D         8
+CBC3       SET 0,E         8
+CBC4       SET 0,H         8
+CBC5       SET 0,L         8
+CBCE       SET 1,(HL)      16
+CBCF       SET 1,A         8
+CBC8       SET 1,B         8
+CBC9       SET 1,C         8
+CBCA       SET 1,D         8
+CBCB       SET 1,E         8
+CBCC       SET 1,H         8
+CBCD       SET 1,L         8
+CBD6       SET 2,(HL)      16
+CBD7       SET 2,A         8
+CBD0       SET 2,B         8
+CBD1       SET 2,C         8
+CBD2       SET 2,D         8
+CBD3       SET 2,E         8
+CBD4       SET 2,H         8
+CBD5       SET 2,L         8
+CBDE       SET 3,(HL)      16
+CBDF       SET 3,A         8
+CBD8       SET 3,B         8
+CBD9       SET 3,C         8
+CBDA       SET 3,D         8
+CBDB       SET 3,E         8
+CBDC       SET 3,H         8
+CBDD       SET 3,L         8
+CBE6       SET 4,(HL)      16
+CBE7       SET 4,A         8
+CBE0       SET 4,B         8
+CBE1       SET 4,C         8
+CBE2       SET 4,D         8
+CBE3       SET 4,E         8
+CBE4       SET 4,H         8
+CBE5       SET 4,L         8
+CBEE       SET 5,(HL)      16
+CBEF       SET 5,A         8
+CBE8       SET 5,B         8
+CBE9       SET 5,C         8
+CBEA       SET 5,D         8
+CBEB       SET 5,E         8
+CBEC       SET 5,H         8
+CBED       SET 5,L         8
+CBF6       SET 6,(HL)      16
+CBF7       SET 6,A         8
+CBF0       SET 6,B         8
+CBF1       SET 6,C         8
+CBF2       SET 6,D         8
+CBF3       SET 6,E         8
+CBF4       SET 6,H         8
+CBF5       SET 6,L         8
+CBFE       SET 7,(HL)      16
+CBFF       SET 7,A         8
+CBF8       SET 7,B         8
+CBF9       SET 7,C         8
+CBFA       SET 7,D         8
+CBFB       SET 7,E         8
+CBFC       SET 7,H         8
+CBFD       SET 7,L         8
+CB26       SLA (HL)        16
+CB27       SLA A           8
+CB20       SLA B           8
+CB21       SLA C           8
+CB22       SLA D           8
+CB23       SLA E           8
+CB24       SLA H           8
+CB25       SLA L           8
+CB36       SWAP (HL)       16
+CB37       SWAP A          8
+CB30       SWAP B          8
+CB31       SWAP C          8
+CB32       SWAP D          8
+CB33       SWAP E          8
+CB34       SWAP H          8
+CB35       SWAP L          8
+CB2E       SRA (HL)        16
+CB2F       SRA A           8
+CB28       SRA B           8
+CB29       SRA C           8
+CB2A       SRA D           8
+CB2B       SRA E           8
+CB2C       SRA H           8
+CB2D       SRA L           8
+CB3E       SRL (HL)        16
+CB3F       SRL A           8
+CB38       SRL B           8
+CB39       SRL C           8
+CB3A       SRL D           8
+CB3B       SRL E           8
+CB3C       SRL H           8
+CB3D       SRL L           8
+10         STOP            4
+96         SUB A,(HL)      8
+97         SUB A,A         4
+90         SUB A,B         4
+91         SUB A,C         4
+92         SUB A,D         4
+93         SUB A,E         4
+94         SUB A,H         4
+95         SUB A,L         4
+D6 n       SUB A,n         8
+AE         XOR (HL)        8
+AF         XOR A           4
+A8         XOR B           4
+A9         XOR C           4
+AA         XOR D           4
+AB         XOR E           4
+AC         XOR H           4
+AD         XOR L           4
+EE n       XOR n           8
