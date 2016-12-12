@@ -50,6 +50,8 @@ $$TABLE_MODULE_HEADER
 	    Operand        : Operand_Type;
 	    Name           : access constant String;
 	    Extended_Table : access constant Instruction_Table_Type;
+	    Cycles         : Natural;
+	    Jump_Cycles    : Natural;
 	  end record;
 	
 	  type Instruction_Array is array

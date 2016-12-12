@@ -17,12 +17,13 @@ class Instruction:
   }
   EXTENDED_OPCODES = [0xCB]
 
-  def __init__(self, opcode1, opcode2, operand_type, mnemonic, cycles):
+  def __init__(self, opcode1, opcode2, operand_type, mnemonic, cycles, branch_cycles):
     self.opcode1 = opcode1
     self.opcode2 = opcode2
     self.operand_type = operand_type
     self.mnemonic = mnemonic
     self.cycles = cycles
+    self.branch_cycles = branch_cycles
     self.method_name = self.method_name_from_mnemonic(mnemonic)
 
   def extended_opcode(self):
@@ -44,8 +45,11 @@ class Instruction:
 
     opcode1, opcode2 = klass.__read_opcode(opcode_str)
     operand_type = klass.__read_operand_type(opcode_str)
+    cycles, branch_cycles = klass.__read_cycles(cycles_str)
 
-    return Instruction(opcode1, opcode2, operand_type, mnemonic_str, cycles_str)
+    return Instruction(
+      opcode1, opcode2, operand_type, mnemonic_str, cycles, branch_cycles
+    )
 
   @classmethod
   def __read_opcode(klass, opcode_str):
@@ -67,3 +71,12 @@ class Instruction:
     if len(content) > 1:
       operand_type_str = content[1]
     return klass.OPERAND_TYPES[operand_type_str]
+
+  @classmethod
+  def __read_cycles(klass, cycles_str):
+    content = cycles_str.split('/')
+    cycles = int(content[0])
+    branch_cycles = None
+    if len(content) > 1:
+      branch_cycles = int(content[1])
+    return cycles, branch_cycles

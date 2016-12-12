@@ -43,16 +43,23 @@ class TableGenerator(Generator):
       operand_type = 'OP_None'
       name_access = 'Null'
       separator = ','
+      cycles = '0'
+      branch_cycles = '0'
       if instruction is not None:
         method_access = instruction.method_name + "'Access"
         operand_type = instruction.operand_type
         name_access = instruction.method_name + "_Name'Access"
+        cycles = str(instruction.cycles)
+        if instruction.branch_cycles is not None:
+          branch_cycles = str(instruction.branch_cycles)
       if idx == InstructionSet.INSTRUCTION_TABLE_SIZE - 1:
         separator = ''
       extended_access = self.extended_table_access(instruction)
       f.write(
-        '      (' + method_access + ', ' + operand_type + ', ' +
-        name_access + ', ' + extended_access + ')' + separator + '\n'
+        '      (' +
+        method_access + ', ' + operand_type + ', ' + name_access + ', ' +
+        extended_access + ', ' + cycles + ', ' + branch_cycles + ')' +
+        separator + '\n'
       )
 
     def extended_table_access(self, instruction):

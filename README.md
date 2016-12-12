@@ -20,5 +20,4 @@ The generated files are the following:
 
 #### TODO:
 - Explain the simple pattern replacement syntax in here
-- Include instruction cycles in the tables.
 - Generate replaceable operand labels
