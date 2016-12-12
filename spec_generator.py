@@ -11,7 +11,6 @@ class SpecGenerator(Generator):
   def generate_content(self, f):
     for instruction in self.instructions:
       self.__generate_method(f, instruction)
-    self.generate_from_variable(f, self.FOOTER_VAR)
 
   def __generate_method(self, f, instruction):
     self.__generate_method_name_constant(f, instruction)
