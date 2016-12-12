@@ -8,8 +8,9 @@ $INSTRUCTION_MODULE_NAME
 $$SPEC_HEADER
 	with Gade.CPU; use Gade.CPU;
 	with Gade.GB;  use Gade.GB;
-
+	
 	package $INSTRUCTION_MODULE_NAME$ is
+	
 
 $$SPEC_FOOTER
 	end $INSTRUCTION_MODULE_NAME$;
@@ -19,8 +20,9 @@ $$BODY_HEADER
 	with Gade.CPU.Logic;      use Gade.CPU.Logic;
 	with Gade.CPU.Bitwise;    use Gade.CPU.Bitwise;
 	with Gade.Basic_Types;    use Gade.Basic_Types;
-
+	
 	package body $INSTRUCTION_MODULE_NAME$ is
+	
 
 $$BODY_FOOTER
 	end $INSTRUCTION_MODULE_NAME$;
@@ -33,32 +35,36 @@ $$TABLE_MODULE_HEADER
 	with Gade.Basic_Types;  use Gade.Basic_Types;
 	with Gade.Instructions; use Gade.Instructions;
 	with Gade.GB;           use Gade.GB;
-
+	
 	package $TABLE_MODULE_NAME$ is
-
+	
 	  type Operand_Type is (OP_None, OP_Byte, OP_Word, OP_Offset);
-
+	
 	  type Instruction_Access is access procedure
 	    (GB : in out GB_Context);
-
+	
 	  type Instruction_Table_Type;
-
+	
 	  type Instruction_Entry is record
 	    Method         : Instruction_Access;
 	    Operand        : Operand_Type;
 	    Name           : access constant String;
-	    Extended_Table : access constant $TABLE_MODULE_NAME$_Type;
+	    Extended_Table : access constant Instruction_Table_Type;
 	  end record;
-
+	
+	  type Instruction_Array is array
+	    (Basic_Types.Byte'Range) of Instruction_Entry;
+	
 	  type Instruction_Table_Type is record
 	    Code_Offset : Natural;
 	    Entries     : aliased Instruction_Array;
 	  end record;
-
+	
 	  Opcodes_Main : aliased constant Instruction_Table_Type;
 	  Opcodes_CB   : aliased constant Instruction_Table_Type;
-
+	
 	private
+	
 
 $$TABLE_MODULE_FOOTER
 	end $TABLE_MODULE_NAME$;
@@ -94,7 +100,7 @@ ADD SP,n
 	  Do_Add(GB.CPU, GB.CPU.Regs.SP, n);
 
 ADD HL,(SP|BC|DE|HL)
-	Do_Add(GB.CPU, GB.CPU.Regs.%1, GB.CPU.Regs.HL); -- Invalid Z flag!
+	Do_Add(GB.CPU, GB.CPU.Regs.%1, GB.CPU.Regs.HL);
 
 #
 # Logic operations
@@ -355,7 +361,7 @@ LDH A,\(n\)
 	  n := Read_Byte(GB, GB.CPU.PC);
 	  GB.CPU.PC := GB.CPU.PC + 1;
 	  Addr := 16#FF00# + Word(n);
-	  GB.CPU.Regs.A := Read_Byte(GB.CPU, Addr);
+	  GB.CPU.Regs.A := Read_Byte(GB, Addr);
 
 LDH \(n\),A
 	  n    : Byte;
