@@ -19,5 +19,6 @@ The generated files are the following:
   Tables of pointers to the generated methods, for instruction decoding/lookup.
 
 #### TODO:
+- Fix generated extended instruction table references being Null
 - Explain the simple pattern replacement syntax in here
 - Generate replaceable operand labels
