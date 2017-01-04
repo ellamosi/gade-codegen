@@ -30,7 +30,7 @@ A3         AND E           4
 A4         AND H           4
 A5         AND L           4
 E6 n       AND n           8
-CB46       BIT 0,(HL)      16
+CB46       BIT 0,(HL)      12
 CB47       BIT 0,A         8
 CB40       BIT 0,B         8
 CB41       BIT 0,C         8
@@ -38,7 +38,7 @@ CB42       BIT 0,D         8
 CB43       BIT 0,E         8
 CB44       BIT 0,H         8
 CB45       BIT 0,L         8
-CB4E       BIT 1,(HL)      16
+CB4E       BIT 1,(HL)      12
 CB4F       BIT 1,A         8
 CB48       BIT 1,B         8
 CB49       BIT 1,C         8
@@ -46,7 +46,7 @@ CB4A       BIT 1,D         8
 CB4B       BIT 1,E         8
 CB4C       BIT 1,H         8
 CB4D       BIT 1,L         8
-CB56       BIT 2,(HL)      16
+CB56       BIT 2,(HL)      12
 CB57       BIT 2,A         8
 CB50       BIT 2,B         8
 CB51       BIT 2,C         8
@@ -54,7 +54,7 @@ CB52       BIT 2,D         8
 CB53       BIT 2,E         8
 CB54       BIT 2,H         8
 CB55       BIT 2,L         8
-CB5E       BIT 3,(HL)      16
+CB5E       BIT 3,(HL)      12
 CB5F       BIT 3,A         8
 CB58       BIT 3,B         8
 CB59       BIT 3,C         8
@@ -62,7 +62,7 @@ CB5A       BIT 3,D         8
 CB5B       BIT 3,E         8
 CB5C       BIT 3,H         8
 CB5D       BIT 3,L         8
-CB66       BIT 4,(HL)      16
+CB66       BIT 4,(HL)      12
 CB67       BIT 4,A         8
 CB60       BIT 4,B         8
 CB61       BIT 4,C         8
@@ -70,7 +70,7 @@ CB62       BIT 4,D         8
 CB63       BIT 4,E         8
 CB64       BIT 4,H         8
 CB65       BIT 4,L         8
-CB6E       BIT 5,(HL)      16
+CB6E       BIT 5,(HL)      12
 CB6F       BIT 5,A         8
 CB68       BIT 5,B         8
 CB69       BIT 5,C         8
@@ -78,7 +78,7 @@ CB6A       BIT 5,D         8
 CB6B       BIT 5,E         8
 CB6C       BIT 5,H         8
 CB6D       BIT 5,L         8
-CB76       BIT 6,(HL)      16
+CB76       BIT 6,(HL)      12
 CB77       BIT 6,A         8
 CB70       BIT 6,B         8
 CB71       BIT 6,C         8
@@ -86,7 +86,7 @@ CB72       BIT 6,D         8
 CB73       BIT 6,E         8
 CB74       BIT 6,H         8
 CB75       BIT 6,L         8
-CB7E       BIT 7,(HL)      16
+CB7E       BIT 7,(HL)      12
 CB7F       BIT 7,A         8
 CB78       BIT 7,B         8
 CB79       BIT 7,C         8
@@ -95,10 +95,10 @@ CB7B       BIT 7,E         8
 CB7C       BIT 7,H         8
 CB7D       BIT 7,L         8
 CD nn      CALL (nn)       24
-DC nn      CALL C,(nn)     24/12
-D4 nn      CALL NC,(nn)    24/12
-C4 nn      CALL NZ,(nn)    24/12
-CC nn      CALL Z,(nn)     24/12
+DC nn      CALL C,(nn)     12/24
+D4 nn      CALL NC,(nn)    12/24
+C4 nn      CALL NZ,(nn)    12/24
+CC nn      CALL Z,(nn)     12/24
 3F         CCF             4
 BE         CP (HL)         8
 BF         CP A            4
@@ -140,15 +140,15 @@ FB         EI              4
 33         INC SP          8
 E9         JP (HL)         4
 C3 nn      JP (nn)         16
-DA nn      JP C,(nn)       16/12
-D2 nn      JP NC,(nn)      16/12
-C2 nn      JP NZ,(nn)      16/12
-CA nn      JP Z,(nn)       16/12
+DA nn      JP C,(nn)       12/16
+D2 nn      JP NC,(nn)      12/16
+C2 nn      JP NZ,(nn)      12/16
+CA nn      JP Z,(nn)       12/16
 18 e       JR (PC+e)       12
-38 e       JR C,(PC+e)     12/8
-30 e       JR NC,(PC+e)    12/8
-20 e       JR NZ,(PC+e)    12/8
-28 e       JR Z,(PC+e)     12/8
+38 e       JR C,(PC+e)     8/12
+30 e       JR NC,(PC+e)    8/12
+20 e       JR NZ,(PC+e)    8/12
+28 e       JR Z,(PC+e)     8/12
 02         LD (BC),A       8
 E2         LD (C),A        8
 12         LD (DE),A       8
@@ -237,7 +237,7 @@ F9         LD SP,HL        8
 32         LDD (HL),A      8
 3A         LDD A,(HL)      8
 E0 n       LDH (n),A       12
-F0         LDH A,(n)       12
+F0 n       LDH A,(n)       12
 F8 n       LDHL SP,n       12
 22         LDI (HL),A      8
 2A         LDI A,(HL)      8
@@ -324,10 +324,10 @@ CBBB       RES 7,E         8
 CBBC       RES 7,H         8
 CBBD       RES 7,L         8
 C9         RET             16
-D8         RET C           20/8
-D0         RET NC          20/8
-C0         RET NZ          20/8
-C8         RET Z           20/8
+D8         RET C           8/20
+D0         RET NC          8/20
+C0         RET NZ          8/20
+C8         RET Z           8/20
 D9         RETI            16
 CB16       RL (HL)         16
 CB17       RL A            8
