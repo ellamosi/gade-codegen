@@ -55,7 +55,7 @@ $$TABLE_MODULE_HEADER
 	  end record;
 	
 	  type Instruction_Array is array
-	    (Basic_Types.Byte'Range) of Instruction_Entry;
+	    (Basic_Types.Byte'Range) of aliased Instruction_Entry;
 	
 	  type Instruction_Table_Type is record
 	    Code_Offset : Natural;
