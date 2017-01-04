@@ -144,6 +144,7 @@ CALL (C|NZ|NC|Z),?\(nn\)
 	begin
 	  GB.CPU.PC := GB.CPU.PC + 2;
 	  if Check_Condition(GB.CPU, C_%1) then
+	    GB.CPU.Branch_Taken := True;
 	    Push(GB, GB.CPU.PC);
 	    GB.CPU.PC := Addr;
 	  end if;
@@ -163,7 +164,8 @@ JP (C|NZ|NC|Z),?\(nn\)
 	begin
 	  GB.CPU.PC := GB.CPU.PC + 2;
 	  if Check_Condition(GB.CPU, C_%1) then
-	  	GB.CPU.PC := Addr;
+	    GB.CPU.Branch_Taken := True;
+	    GB.CPU.PC := Addr;
 	  end if;
 
 JR \(PC\+e\)
@@ -177,7 +179,8 @@ JR (C|NZ|NC|Z),?\(PC\+e\)
 	begin
 	  GB.CPU.PC := GB.CPU.PC + 1;
 	  if Check_Condition(GB.CPU, C_%1) then
-	  	Add_Offset(GB.CPU, GB.CPU.PC, Offset, False);
+	    GB.CPU.Branch_Taken := True;
+	    Add_Offset(GB.CPU, GB.CPU.PC, Offset, False);
 	  end if;
 
 RETI
@@ -186,6 +189,7 @@ RETI
 
 RET (C|NZ|NC|Z)
 	if Check_Condition(GB.CPU, C_%1) then
+	  GB.CPU.Branch_Taken := True;
 	  Pop(GB, GB.CPU.PC);
 	end if;
 
