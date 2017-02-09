@@ -1,17 +1,13 @@
 from instruction import Instruction
+from instruction_tree import InstructionTree
 
 class InstructionSet:
-  INSTRUCTION_TABLE_SIZE = 256
-
   def __init__(self, instructions):
     self.instructions = instructions
-    self.main_instructions = [None] * self.INSTRUCTION_TABLE_SIZE
-    self.cb_instructions = [None] * self.INSTRUCTION_TABLE_SIZE
+    self.instruction_tree = InstructionTree()
+
     for instruction in instructions:
-      if not instruction.extended_opcode():
-        self.main_instructions[instruction.opcode1] = instruction
-      else:
-        self.cb_instructions[instruction.opcode2] = instruction
+      self.instruction_tree.insert_instruction(instruction)
 
   def __getitem__(self, key):
     return self.instructions[key]
@@ -28,3 +24,4 @@ class InstructionSet:
       instructions.append(instruction)
     f.close()
     return InstructionSet(instructions)
+
