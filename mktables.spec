@@ -20,7 +20,6 @@ $$BODY_HEADER
 	with Gade.Dev.CPU.Arithmetic; use Gade.Dev.CPU.Arithmetic;
 	with Gade.Dev.CPU.Logic;      use Gade.Dev.CPU.Logic;
 	with Gade.Dev.CPU.Bitwise;    use Gade.Dev.CPU.Bitwise;
-	with Gade.Basic_Types;        use Gade.Basic_Types;
 	
 	package body $INSTRUCTION_MODULE_NAME$ is
 	
@@ -32,7 +31,6 @@ $TABLE_MODULE_NAME
 	Gade.Dev.CPU.Instruction_Table
 
 $$TABLE_MODULE_HEADER
-	with Gade.Basic_Types;          use Gade.Basic_Types;
 	with Gade.Dev.CPU.Instructions; use Gade.Dev.CPU.Instructions;
 	limited with Gade.GB;
 	
@@ -54,8 +52,7 @@ $$TABLE_MODULE_HEADER
 	    Jump_Cycles    : Natural;
 	  end record;
 	
-	  type Instruction_Array is array
-	    (Basic_Types.Byte'Range) of aliased Instruction_Entry;
+	  type Instruction_Array is array (Byte'Range) of aliased Instruction_Entry;
 	
 	  type Instruction_Table_Type is record
 	    Code_Offset : Natural;
