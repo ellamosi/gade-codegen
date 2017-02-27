@@ -3,11 +3,10 @@
 #
 
 $INSTRUCTION_MODULE_NAME
-	Gade.Instructions
+	Gade.Dev.CPU.Instructions
 
 $$SPEC_HEADER
-	with Gade.CPU; use Gade.CPU;
-	with Gade.GB;  use Gade.GB;
+	limited with Gade.GB;
 	
 	package $INSTRUCTION_MODULE_NAME$ is
 	
@@ -16,10 +15,12 @@ $$SPEC_FOOTER
 	end $INSTRUCTION_MODULE_NAME$;
 
 $$BODY_HEADER
-	with Gade.CPU.Arithmetic; use Gade.CPU.Arithmetic;
-	with Gade.CPU.Logic;      use Gade.CPU.Logic;
-	with Gade.CPU.Bitwise;    use Gade.CPU.Bitwise;
-	with Gade.Basic_Types;    use Gade.Basic_Types;
+	with Gade.GB;                 use Gade.GB;
+	with Gade.GB.Memory_Map;      use Gade.GB.Memory_Map;
+	with Gade.Dev.CPU.Arithmetic; use Gade.Dev.CPU.Arithmetic;
+	with Gade.Dev.CPU.Logic;      use Gade.Dev.CPU.Logic;
+	with Gade.Dev.CPU.Bitwise;    use Gade.Dev.CPU.Bitwise;
+	with Gade.Basic_Types;        use Gade.Basic_Types;
 	
 	package body $INSTRUCTION_MODULE_NAME$ is
 	
@@ -28,20 +29,19 @@ $$BODY_FOOTER
 	end $INSTRUCTION_MODULE_NAME$;
 
 $TABLE_MODULE_NAME
-	Gade.Instruction_Table
+	Gade.Dev.CPU.Instruction_Table
 
 $$TABLE_MODULE_HEADER
-	with Gade.CPU;          use Gade.CPU;
-	with Gade.Basic_Types;  use Gade.Basic_Types;
-	with Gade.Instructions; use Gade.Instructions;
-	with Gade.GB;           use Gade.GB;
+	with Gade.Basic_Types;          use Gade.Basic_Types;
+	with Gade.Dev.CPU.Instructions; use Gade.Dev.CPU.Instructions;
+	limited with Gade.GB;
 	
 	package $TABLE_MODULE_NAME$ is
 	
 	  type Operand_Type is (OP_None, OP_Byte, OP_Word, OP_Offset);
 	
 	  type Instruction_Access is access procedure
-	    (GB : in out GB_Context);
+	    (GB : in out Gade.GB.GB_Type);
 	
 	  type Instruction_Table_Type;
 	

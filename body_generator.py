@@ -22,16 +22,16 @@ class BodyGenerator(Generator):
 
   def __generate_method_header(self, f, match):
     f.write(
-      '  procedure ' + match.method_name() + ' (GB : in out GB_Context) is\n'
+      '   procedure ' + match.method_name() + ' (GB : in out Gade.GB.GB_Type) is\n'
     )
     if not match.has_declarations:
-      f.write('  begin\n')
+      f.write('   begin\n')
 
   def __generate_method_body(self, f, match):
     for content_line in match.value():
       if not match.has_declarations:
-        f.write('  ')
-      f.write('  ' + content_line + '\n')
+        f.write('   ')
+      f.write('   ' + content_line + '\n')
 
   def __generate_method_footer(self, f, match):
-    f.write('  end ' + match.method_name() + ';\n\n')
+    f.write('   end ' + match.method_name() + ';\n\n')

@@ -18,12 +18,12 @@ class SpecGenerator(Generator):
 
   def __generate_method_name_constant(self, f, instruction):
     f.write(
-      '  ' + instruction.method_name + '_Name : aliased constant String := "' +
+      '   ' + instruction.method_name + '_Name : aliased constant String := "' +
       instruction.mnemonic + '";\n'
     )
 
   def __generate_method_declaration(self, f, instruction):
     f.write(
-      '  procedure ' + instruction.method_name +
-      ' (GB : in out GB_Context);\n\n'
+      '   procedure ' + instruction.method_name +
+      ' (GB : in out Gade.GB.GB_Type);\n\n'
     )

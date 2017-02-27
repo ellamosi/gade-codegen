@@ -62,15 +62,15 @@ class InstructionTableEntry(NullTableEntry):
       return '0'
 
 class ExtendedTableEntry(NullTableEntry):
-  def __init__(self, instruction_node, table_name, opcode_byte):
+  def __init__(self, instruction_node, table_prefix, opcode_byte):
     self.instruction_node = instruction_node
-    self.table_name = table_name
+    self.table_prefix = table_prefix
     self.opcode_byte = opcode_byte
 
   def extended_access(self):
+    table_prefix = PartialTableGenerator.prefix_str(self.table_prefix)
     opcode_prefix = PartialTableGenerator.opcode_byte_str(self.opcode_byte)
-    extended_table_prefix = self.table_name + opcode_prefix
-    return "Opcodes_" + extended_table_prefix + "'Access"
+    return "Opcodes_" + table_prefix + opcode_prefix + "'Access"
 
 class PartialTableGenerator:
   def __init__(self, instruction_subtree, table_prefix):
@@ -84,7 +84,7 @@ class PartialTableGenerator:
 
   def generate_table_header(self, f):
     f.write(
-      '  Opcodes_' + self.table_name() +
+      '   Opcodes_' + self.table_name() +
       ' : aliased constant Instruction_Table_Type :=\n' +
       '     ( 0, (\n'
     )
@@ -125,7 +125,7 @@ class PartialTableGenerator:
     elif node.is_instruction_node():
       return InstructionTableEntry(node)
     else:
-      return ExtendedTableEntry(node, self.table_name(), opcode_byte)
+      return ExtendedTableEntry(node, self.table_prefix, opcode_byte)
 
   def generate_table_footer(self, f):
     f.write(
