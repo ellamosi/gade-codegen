@@ -11,7 +11,7 @@ def codegen():
 
   BodyGenerator(instructions, substitutions, variables).generate('Gade-Dev-CPU-Instructions.adb')
   SpecGenerator(instructions, variables).generate('Gade-Dev-CPU-Instructions.ads')
-  TableGenerator(instructions, variables).generate('Gade-Dev-CPU-Instruction_Table.ads')
+  TableGenerator(instructions, variables).generate('Gade-Dev-CPU-Instructions-Table.ads')
 
 if __name__ == '__main__':
   codegen()

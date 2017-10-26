@@ -39,7 +39,7 @@ class SubstitutionMatch:
     indentation = method_ref_match.group(1)
     mnemonic = method_ref_match.group(2)
     method_name = self.substitutions.lookup(mnemonic).method_name()
-    return indentation + method_name + '(GB);'
+    return indentation + method_name + ' (GB);'
 
   def __replace_arguments(self, line):
     return self.ARGUMENT_REFERENCE.sub(self.__arg_rep, line)

@@ -22,16 +22,16 @@ class TableGenerator(Generator):
 
 class NullTableEntry:
   def method_access(self):
-    return 'Null'
+    return 'null'
 
   def operand_type(self):
     return 'OP_None'
 
   def name_access(self):
-    return 'Null'
+    return 'null'
 
   def extended_access(self):
-    return 'Null'
+    return 'null'
 
   def cycles(self):
     return '0'
@@ -86,7 +86,7 @@ class PartialTableGenerator:
     f.write(
       '   Opcodes_' + self.table_name() +
       ' : aliased constant Instruction_Table_Type :=\n' +
-      '     ( 0, (\n'
+      '     (0, (\n'
     )
 
   def table_name(self):
@@ -129,7 +129,7 @@ class PartialTableGenerator:
 
   def generate_table_footer(self, f):
     f.write(
-      '     ) );\n\n'
+      '     ));\n\n'
     )
 
   @classmethod
