@@ -326,6 +326,9 @@ LD (A|B|C|D|E|H|L),\(nn\)
 	   GB.CPU.PC := GB.CPU.PC + 2;
 	   GB.CPU.Regs.%1 := Read_Byte (GB, Addr);
 
+LD (A,A|B,B|C,C|D,D|E,E|H,H|L,L)
+	null;
+
 LD (A|B|C|D|E|H|L),(A|B|C|D|E|H|L)
 	GB.CPU.Regs.%1 := GB.CPU.Regs.%2;
 
