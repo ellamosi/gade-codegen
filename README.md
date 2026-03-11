@@ -6,16 +6,16 @@ It takes a list of instructions for a Sharp LR35902 CPU `opcodes.lst` and genera
 
 #### How to run:
 
-Assuming you have Python 2.7 installed simply:
+Assuming you have Python 3 installed simply:
 
-`python codegen.py`
+`python3 codegen.py`
 
 The generated files are the following:
-- `Gade-Instructions.ads`
+- `gade-dev-cpu-instructions.ads`
   Instruction definitions, one procedure per opcode.
-- `Gade-Instructions.adb`
+- `gade-dev-cpu-instructions.adb`
   Instruction implementations, one procedure per opcode.
-- `Gade-Instruction_Table.ads`
+- `gade-dev-cpu-instructions-table.ads`
   Tables of pointers to the generated methods, for instruction decoding/lookup.
 
 #### TODO:

@@ -61,7 +61,7 @@ class Substitution(Token):
       return SubstitutionMatch(self.substitutions, match, self.content)
 
   def token_name(self):
-    return 'Substitution ' + expression
+    return 'Substitution ' + self.expression
 
 class Substitutions:
   def __init__(self):

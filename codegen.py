@@ -9,9 +9,9 @@ def codegen():
   instructions = InstructionSet.load('opcodes.lst')
   variables, substitutions = Tokenizer.load('mktables.spec')
 
-  BodyGenerator(instructions, substitutions, variables).generate('Gade-Dev-CPU-Instructions.adb')
-  SpecGenerator(instructions, variables).generate('Gade-Dev-CPU-Instructions.ads')
-  TableGenerator(instructions, variables).generate('Gade-Dev-CPU-Instructions-Table.ads')
+  BodyGenerator(instructions, substitutions, variables).generate('gade-dev-cpu-instructions.adb')
+  SpecGenerator(instructions, variables).generate('gade-dev-cpu-instructions.ads')
+  TableGenerator(instructions, variables).generate('gade-dev-cpu-instructions-table.ads')
 
 if __name__ == '__main__':
   codegen()
