@@ -13,7 +13,7 @@ class InstructionSet:
     return self.instructions[key]
 
   def __len__(self):
-    return self.instructions.len
+    return len(self.instructions)
 
   @classmethod
   def load(klass, file_name):
@@ -24,4 +24,3 @@ class InstructionSet:
       instructions.append(instruction)
     f.close()
     return InstructionSet(instructions)
-

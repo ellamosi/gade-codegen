@@ -25,7 +25,7 @@ class Instruction:
     self.method_name = self.method_name_from_mnemonic(mnemonic)
 
   def extended_opcode(self, depth=0):
-    len(self.opcode_bytes) - 1 > depth
+    return len(self.opcode_bytes) - 1 > depth
 
   def is_instruction_node(self):
     return True
@@ -56,7 +56,7 @@ class Instruction:
   def __read_opcode(klass, opcode_str):
     opcode_bytes_str = opcode_str.split(' ', 1)[0]
     opcode_bytes = []
-    for i in xrange(0, len(opcode_bytes_str), 2):
+    for i in range(0, len(opcode_bytes_str), 2):
       byte = int(opcode_bytes_str[i:i+2], 16)
       opcode_bytes.append(byte)
     return opcode_bytes

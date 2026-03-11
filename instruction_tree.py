@@ -8,7 +8,7 @@ class InstructionTree:
     return self.opcode_nodes[key]
 
   def __len__(self):
-    return self.opcode_nodes.len
+    return len(self.opcode_nodes)
 
   def insert_instruction(self, instruction):
     node = self
