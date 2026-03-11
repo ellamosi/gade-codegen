@@ -18,9 +18,6 @@ The generated files are the following:
 - `gade-dev-cpu-instructions-table.ads`
   Tables of pointers to the generated methods, for instruction decoding/lookup.
 
-#### TODO:
-- Generate replaceable operand labels
-
 ## Pattern replacement syntax (`mktables.spec`)
 
 The spec file is tokenized line-by-line with a few simple rules:
