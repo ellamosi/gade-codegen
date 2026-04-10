@@ -2,6 +2,10 @@
 
 This is code generation helper tool for my [Gade](https://github.com/ellamosi/gade) emulator side project.
 
+> Archive note
+>
+> This repository is being kept as a public archive. As of [ellamosi/gade#50](https://github.com/ellamosi/gade/pull/50), `gade` no longer relies on code generation and uses generics instead, so no further changes are expected.
+
 It takes a list of instructions for a Sharp LR35902 CPU `opcodes.lst` and generates an Ada method for each of them based on the patterns defined in `mktables.spec`. It should be easy to adapt to generate code for other languages and/or architecture, the similar Zilog Z80 comes to mind.
 
 #### How to run:
